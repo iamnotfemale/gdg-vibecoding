@@ -437,19 +437,33 @@ claude</pre>
       btn.setAttribute('data-label',label);
     }
 
+    var hold=1400;
+
     write(text).then(function(){
       btn.textContent='복사됨';
       btn.classList.add('done');
     })['catch'](function(){
-      btn.textContent='실패';
+      /* 클립보드가 끝내 막혔을 때. 블록 전체를 선택해두면
+         수강생이 Ctrl+C 로 직접 가져갈 수 있다. */
+      btn.textContent='직접 복사';
       btn.classList.add('done');
+      hold=4000;
+      var host=btn.closest('.blk')||btn.closest('.cmdrow');
+      var pre=host?(host.querySelector('.body')||host.querySelector('.k')):null;
+      if(pre){
+        var r=document.createRange();
+        r.selectNodeContents(pre);
+        var sel=window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(r);
+      }
+    }).then(function(){
+      clearTimeout(btn._t);
+      btn._t=setTimeout(function(){
+        btn.textContent=label;
+        btn.classList.remove('done');
+      },hold);
     });
-
-    clearTimeout(btn._t);
-    btn._t=setTimeout(function(){
-      btn.textContent=label;
-      btn.classList.remove('done');
-    },1400);
   });
 })();
 </script>
