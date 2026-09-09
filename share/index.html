@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>결과물 공유 · 바이브 코딩</title>
+<meta name="description" content="오늘 배포한 내 사이트 주소를 올리고, 서로 구경하는 곳.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/wanted-sans@1.0.3/packages/wanted-sans/fonts/webfonts/variable/complete/WantedSansVariable.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="../styles.css">
+<style>
+/* ---------- 입력 폼 ---------- */
+.form{
+  border:1px solid var(--line);border-radius:12px;
+  padding:clamp(18px,4.4vw,26px);
+}
+.field{margin-bottom:16px}
+.field:last-of-type{margin-bottom:20px}
+.field label{
+  display:flex;align-items:baseline;justify-content:space-between;gap:8px;
+  font-size:13px;font-weight:800;letter-spacing:-.02em;margin-bottom:6px;
+}
+.field label .lim{font-family:var(--mono);font-size:11px;color:var(--ink2);font-weight:400}
+.field input{
+  width:100%;min-height:48px;padding:0 14px;
+  border:1.5px solid var(--line);border-radius:8px;background:var(--paper);
+  font-family:var(--sans);font-size:16px;color:var(--ink);
+  letter-spacing:-.02em;
+}
+.field input.mono{font-family:var(--mono);font-size:15px;letter-spacing:0}
+.field input:focus{outline:none;border-color:var(--crimson)}
+.field input::placeholder{color:var(--ink2);opacity:.7}
+.form .btn{width:100%}
+.msg{
+  margin-top:12px;font-size:var(--fs-sm);line-height:1.5;
+  border-left:3px solid var(--crimson);padding-left:.9em;color:var(--crimson);
+  font-weight:700;
+}
+.msg[hidden]{display:none}
+.msg.quiet{border-left-color:var(--line);color:var(--ink2);font-weight:400}
+
+/* ---------- 목록 ---------- */
+.listhead{
+  display:flex;align-items:baseline;justify-content:space-between;
+  gap:10px;margin-bottom:14px;
+}
+.listhead .cnt{font-family:var(--mono);font-size:13px;color:var(--ink2);letter-spacing:0}
+.cards{display:grid;gap:10px}
+.card{
+  display:block;text-decoration:none;color:inherit;
+  border:1px solid var(--line);border-radius:12px;
+  padding:16px 18px;
+}
+.card:hover{border-color:var(--crimson)}
+.card .top{display:flex;align-items:baseline;gap:10px;margin-bottom:5px}
+.card .nm{font-size:var(--fs-body);font-weight:800;letter-spacing:-.03em;color:var(--ink)}
+.card .dt{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--ink2);letter-spacing:0;white-space:nowrap}
+.card .ds{font-size:var(--fs-sm);color:#2E2529;line-height:1.5;margin-bottom:8px}
+.card .ln{
+  font-family:var(--mono);font-size:12px;color:var(--crimson);
+  letter-spacing:0;word-break:break-all;font-weight:700;
+}
+.card:hover .ln{text-decoration:underline}
+
+.empty{
+  border:1px dashed var(--line);border-radius:12px;
+  padding:clamp(30px,8vw,48px) 20px;text-align:center;
+}
+.empty .big{font-size:var(--fs-body);font-weight:800;letter-spacing:-.03em;margin-bottom:6px}
+.empty .sub{font-size:var(--fs-sm);color:var(--ink2)}
+
+.skel{font-size:var(--fs-sm);color:var(--ink2);padding:20px 0}
+</style>
+</head>
+<body class="page">
+
+<nav class="nav" aria-label="사이트 이동">
+  <div class="container">
+    <a class="brand" href="../">바이브 코딩 <span>·</span> GDGoC KU</a>
+    <ul>
+      <li><a class="n" href="../">메인</a></li>
+      <li><a class="n" href="../slide/">슬라이드</a></li>
+      <li><a class="n" href="../prompt/">프롬프트</a></li>
+      <li><a class="n" href="./" aria-current="page">공유</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+<header class="hero">
+  <div class="container">
+    <h1>결과물 공유</h1>
+    <p class="lede">오늘 배포한 내 주소를 올리고, 다른 사람 것도 눌러보세요.</p>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="container">
+    <div class="kicker">Add</div>
+    <h2>내 결과물 올리기</h2>
+
+    <form class="form" id="f" novalidate>
+      <div class="field">
+        <label for="name">이름 <span class="lim">최대 20자</span></label>
+        <input id="name" name="name" type="text" maxlength="20" autocomplete="name" placeholder="여승민" required>
+      </div>
+      <div class="field">
+        <label for="url">링크 <span class="lim">https:// 생략 가능</span></label>
+        <input id="url" name="url" class="mono" type="text" inputmode="url" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="my-project.vercel.app" required>
+      </div>
+      <div class="field">
+        <label for="desc">한 줄 설명 <span class="lim">최대 80자</span></label>
+        <input id="desc" name="desc" type="text" maxlength="80" placeholder="내 소개 페이지. 관심사랑 링크만 담았어요">
+      </div>
+      <button class="btn" id="submit" type="submit">올리기</button>
+      <p class="msg" id="msg" role="status" hidden></p>
+    </form>
+
+    <div class="note">삭제 기능은 없습니다. <b>수정이나 삭제가 필요하면 강사에게 말씀해주세요.</b></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="container">
+    <div class="listhead">
+      <h2 style="margin-bottom:0">올라온 것들</h2>
+      <span class="cnt" id="cnt"></span>
+    </div>
+    <div class="skel" id="loading">불러오는 중…</div>
+    <div class="cards" id="cards"></div>
+    <div class="empty" id="empty" hidden>
+      <div class="big">아직 아무도 없습니다</div>
+      <div class="sub">첫 번째로 올려보세요.</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="container">
+    <div class="fl">
+      <a href="../">메인</a>
+      <a href="../slide/">슬라이드</a>
+      <a href="../prompt/">프롬프트 모음</a>
+    </div>
+    <div>GDGoC Korea Univ. · 바이브코딩 특강</div>
+  </div>
+</footer>
+
+<script src="./config.js"></script>
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/+esm';
+
+const NAME_MAX = 20;
+const DESC_MAX = 80;
+
+const f       = document.getElementById('f');
+const elName  = document.getElementById('name');
+const elUrl   = document.getElementById('url');
+const elDesc  = document.getElementById('desc');
+const btn     = document.getElementById('submit');
+const msg     = document.getElementById('msg');
+const cards   = document.getElementById('cards');
+const empty   = document.getElementById('empty');
+const loading = document.getElementById('loading');
+const cnt     = document.getElementById('cnt');
+
+function say(text, quiet){
+  msg.textContent = text;
+  msg.classList.toggle('quiet', !!quiet);
+  msg.hidden = !text;
+}
+
+const URL_CONF  = (window.SUPABASE_URL || '').trim();
+const KEY_CONF  = (window.SUPABASE_ANON_KEY || '').trim();
+const CONFIGURED = URL_CONF.startsWith('http') && KEY_CONF.length > 20;
+
+if(!CONFIGURED){
+  loading.hidden = true;
+  btn.disabled = true;
+  say('Supabase 연결이 아직 설정되지 않았습니다. share/config.js 에 Project URL과 anon key를 넣어주세요.');
+} else {
+  const db = createClient(URL_CONF, KEY_CONF);
+  start(db);
+}
+
+function normalizeUrl(raw){
+  let u = raw.trim().replace(/\s+/g, '');
+  if(!u) return '';
+  if(!/^https?:\/\//i.test(u)) u = 'https://' + u;
+  try{
+    const parsed = new URL(u);
+    if(!parsed.hostname.includes('.')) return '';
+    return parsed.href;
+  }catch(err){
+    return '';
+  }
+}
+
+function fmtDate(iso){
+  const d = new Date(iso);
+  if(isNaN(d)) return '';
+  const p = n => String(n).padStart(2, '0');
+  return p(d.getMonth() + 1) + '.' + p(d.getDate()) + ' ' + p(d.getHours()) + ':' + p(d.getMinutes());
+}
+
+function render(rows){
+  cards.textContent = '';
+  cnt.textContent = rows.length ? rows.length + '개' : '';
+  empty.hidden = rows.length > 0;
+
+  for(const r of rows){
+    const a = document.createElement('a');
+    a.className = 'card';
+    a.href = r.url;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+
+    const top = document.createElement('div');
+    top.className = 'top';
+    const nm = document.createElement('span');
+    nm.className = 'nm';
+    nm.textContent = r.name;
+    const dt = document.createElement('span');
+    dt.className = 'dt';
+    dt.textContent = fmtDate(r.created_at);
+    top.append(nm, dt);
+    a.append(top);
+
+    if(r.description){
+      const ds = document.createElement('div');
+      ds.className = 'ds';
+      ds.textContent = r.description;
+      a.append(ds);
+    }
+
+    const ln = document.createElement('div');
+    ln.className = 'ln';
+    try{
+      const u = new URL(r.url);
+      ln.textContent = u.hostname + (u.pathname === '/' ? '' : u.pathname);
+    }catch(err){
+      ln.textContent = r.url;
+    }
+    a.append(ln);
+
+    cards.append(a);
+  }
+}
+
+async function start(db){
+  async function load(){
+    const { data, error } = await db
+      .from('shares')
+      .select('name, url, description, created_at')
+      .order('created_at', { ascending: false });
+
+    loading.hidden = true;
+
+    if(error){
+      empty.hidden = true;
+      say('목록을 불러오지 못했습니다. 새로고침해보세요. (' + error.message + ')');
+      return;
+    }
+    render(data || []);
+  }
+
+  f.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name = elName.value.trim().slice(0, NAME_MAX);
+    const url  = normalizeUrl(elUrl.value);
+    const desc = elDesc.value.trim().slice(0, DESC_MAX);
+
+    if(!name){ say('이름을 적어주세요.'); elName.focus(); return; }
+    if(!url){ say('링크를 다시 확인해주세요. my-project.vercel.app 처럼 적으면 됩니다.'); elUrl.focus(); return; }
+
+    btn.disabled = true;
+    const label = btn.textContent;
+    btn.textContent = '올리는 중…';
+    say('');
+
+    const { error } = await db
+      .from('shares')
+      .insert({ name, url, description: desc || null });
+
+    btn.disabled = false;
+    btn.textContent = label;
+
+    if(error){
+      if(error.code === '23505'){
+        say('이미 등록된 링크입니다. 아래 목록에서 확인해보세요.');
+      } else {
+        say('올리지 못했습니다. 잠시 뒤 다시 시도해주세요. (' + error.message + ')');
+      }
+      return;
+    }
+
+    f.reset();
+    say('올렸습니다. 아래 목록 맨 위에 있습니다.', true);
+    await load();
+  });
+
+  await load();
+}
+</script>
+
+</body>
+</html>
