@@ -392,10 +392,16 @@ claude</pre>
 
 <script>
 (function(){
+  /* clipboard API 는 탭이 포커스를 잃었거나 권한이 막히면 거부한다.
+     그때는 조용히 execCommand 방식으로 한 번 더 시도한다. */
   function write(text){
     if(navigator.clipboard && window.isSecureContext){
-      return navigator.clipboard.writeText(text);
+      return navigator.clipboard.writeText(text)['catch'](function(){ return legacy(text); });
     }
+    return legacy(text);
+  }
+
+  function legacy(text){
     return new Promise(function(res,rej){
       var ta=document.createElement('textarea');
       ta.value=text;

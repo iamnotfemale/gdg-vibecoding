@@ -156,8 +156,8 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/+esm';
 
 /* Supabase 연결 정보.
- * 별도 config.js 로 두었더니 광고 차단기가 그 요청을 막아서(ERR_BLOCKED_BY_CLIENT)
- * 수강생 브라우저에서 페이지가 통째로 죽었다. 그래서 여기에 직접 둔다.
+ * 빌드 도구가 없어 환경변수를 주입할 방법이 없으므로 여기에 직접 둔다.
+ * (별도 config.js 로 빼면 요청이 하나 늘고, 차단기·확장프로그램에 막힐 여지만 생긴다)
  * anon key 는 원래 클라이언트에 노출되는 공개 키다. 이건 정상이다.
  * shares 테이블은 RLS 로 select / insert 만 열려 있고 update / delete 는 막혀 있다.
  * service_role key 는 절대 여기에 넣지 말 것. */

@@ -35,7 +35,7 @@ Vercel 정적 배포. 빌드 도구 없음. 외부 의존은 폰트 CDN과 Supab
 - 프레임워크 도입 금지. 페이지당 HTML 한 장을 유지한다
 - Supabase service_role key 는 절대 코드에 넣지 말 것
   (anon key 는 빌드 도구가 없어 주입할 방법이 없으므로 share/index.html 안에 직접 둔다.
-   원래 공개되는 키이고 RLS 로 막혀 있다. 별도 js 파일로 빼면 광고 차단기가 막는다)
+   원래 공개되는 키이고 RLS 로 막혀 있다)
 
 ## 파일 구조
 ```
