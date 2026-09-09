@@ -33,7 +33,9 @@ Vercel 정적 배포. 빌드 도구 없음. 외부 의존은 폰트 CDN과 Supab
 - localStorage / sessionStorage 사용 금지
 - 슬라이드 내용을 임의로 고치지 말 것. 순서와 문구는 확정된 상태다
 - 프레임워크 도입 금지. 페이지당 HTML 한 장을 유지한다
-- Supabase 키를 코드에 하드코딩하지 말 것
+- Supabase service_role key 는 절대 코드에 넣지 말 것
+  (anon key 는 빌드 도구가 없어 주입할 방법이 없으므로 share/index.html 안에 직접 둔다.
+   원래 공개되는 키이고 RLS 로 막혀 있다. 별도 js 파일로 빼면 광고 차단기가 막는다)
 
 ## 파일 구조
 ```
@@ -41,7 +43,6 @@ index.html            메인
 slide/index.html      발제 슬라이드
 prompt/index.html     프롬프트 모음
 share/index.html      결과물 공유
-share/config.js       Supabase URL / anon key (공개 키. 배포에 포함된다)
 styles.css            4개 페이지가 공유하는 디자인 토큰
 ```
 

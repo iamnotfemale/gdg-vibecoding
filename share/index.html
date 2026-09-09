@@ -152,9 +152,17 @@
   </div>
 </footer>
 
-<script src="./config.js"></script>
 <script type="module">
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/+esm';
+
+/* Supabase 연결 정보.
+ * 별도 config.js 로 두었더니 광고 차단기가 그 요청을 막아서(ERR_BLOCKED_BY_CLIENT)
+ * 수강생 브라우저에서 페이지가 통째로 죽었다. 그래서 여기에 직접 둔다.
+ * anon key 는 원래 클라이언트에 노출되는 공개 키다. 이건 정상이다.
+ * shares 테이블은 RLS 로 select / insert 만 열려 있고 update / delete 는 막혀 있다.
+ * service_role key 는 절대 여기에 넣지 말 것. */
+const SUPABASE_URL      = 'https://alkxsmpgzemptmlqxefz.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFsa3hzbXBnemVtcHRtbHF4ZWZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg5NzI1NDYsImV4cCI6MjEwNDU0ODU0Nn0.0r7VRsfDiRn9Ddszih-1m0CXfJajXGkLWty0KI1_Ys4';
 
 const NAME_MAX = 20;
 const DESC_MAX = 80;
@@ -176,14 +184,14 @@ function say(text, quiet){
   msg.hidden = !text;
 }
 
-const URL_CONF  = (window.SUPABASE_URL || '').trim();
-const KEY_CONF  = (window.SUPABASE_ANON_KEY || '').trim();
+const URL_CONF  = SUPABASE_URL.trim();
+const KEY_CONF  = SUPABASE_ANON_KEY.trim();
 const CONFIGURED = URL_CONF.startsWith('http') && KEY_CONF.length > 20;
 
 if(!CONFIGURED){
   loading.hidden = true;
   btn.disabled = true;
-  say('Supabase 연결이 아직 설정되지 않았습니다. share/config.js 에 Project URL과 anon key를 넣어주세요.');
+  say('Supabase 연결이 설정되지 않았습니다. share/index.html 안의 SUPABASE_URL / SUPABASE_ANON_KEY 를 확인해주세요.');
 } else {
   const db = createClient(URL_CONF, KEY_CONF);
   start(db);
