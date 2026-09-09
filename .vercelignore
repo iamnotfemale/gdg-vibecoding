@@ -1,0 +1,9 @@
+# 배포본에 올라가면 안 되는 것들.
+# 정적 배포라 폴더 안의 모든 파일이 URL로 열린다.
+.env
+.env.local
+.env.local.example
+.git
+.claude
+CLAUDE.md
+deck-handoff.md
