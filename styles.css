@@ -1,7 +1,13 @@
 /* ===================================================================
    바이브코딩 특강 사이트 — 공통 디자인 토큰
    흰 배경(#FFFFFF)과 크림슨(#801A2C) 두 축. 다른 색 추가 금지.
-   폰트: Wanted Sans(본문/제목), JetBrains Mono(코드). 변경 금지.
+   폰트는 Pretendard 하나뿐. 다른 폰트 추가 금지.
+   --sans  본문과 제목
+   --alt   코드·터미널·라벨. 같은 폰트에 자간 0 과 tabular-nums 만 다르게 준다.
+
+   원래는 Wanted Sans(본문) + JetBrains Mono(코드) 였다.
+   JetBrains Mono 는 한글 글리프가 없어 「쉬는시간」 같은 한글이 시스템 폰트로
+   떨어졌고, Wanted Sans 는 CDN 경로가 404 라 아예 로드된 적이 없었다.
 
    :root 와 리셋은 4개 페이지 전부가 쓴다.
    .page 로 시작하는 규칙은 읽는 페이지(메인/프롬프트/공유) 전용이며
@@ -19,9 +25,9 @@
   --panel:#1B1214;
   --panel-ink:#F2EDEE;
 
-  --sans:"Wanted Sans Variable","Wanted Sans","Pretendard Variable",Pretendard,
+  --sans:"Pretendard Variable",Pretendard,
          -apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --alt:var(--sans);
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -102,7 +108,8 @@ html{word-break:keep-all;overflow-wrap:break-word}
 .page a{color:var(--crimson)}
 
 .page code{
-  font-family:var(--mono);font-size:.86em;font-weight:700;
+  font-family:var(--alt);font-size:.92em;font-weight:700;
+  letter-spacing:0;
   color:var(--crimson);background:var(--crimson-soft);
   padding:.12em .38em;border-radius:4px;letter-spacing:0;
   word-break:break-word;
@@ -112,7 +119,7 @@ html{word-break:keep-all;overflow-wrap:break-word}
 .page .sec{padding:clamp(38px,9vw,60px) 0;border-top:1px solid var(--line)}
 .page .sec:first-of-type{border-top:0}
 .page .kicker{
-  font-family:var(--mono);font-size:12px;font-weight:700;
+  font-family:var(--alt);font-size:12px;font-weight:800;
   color:var(--crimson);letter-spacing:.08em;
   text-transform:uppercase;margin-bottom:.9em;
 }
@@ -141,7 +148,7 @@ html{word-break:keep-all;overflow-wrap:break-word}
 .page .jump a.primary{background:var(--crimson);color:#fff}
 .page .jump a:hover{background:var(--crimson);color:#fff}
 .page .jump .t{font-size:clamp(15px,3.6vw,18px);font-weight:800;letter-spacing:-.03em}
-.page .jump .p{font-family:var(--mono);font-size:12px;opacity:.78;letter-spacing:0}
+.page .jump .p{font-family:var(--alt);font-size:12px;opacity:.78;letter-spacing:0}
 
 /* ============ rows (표 대신) ============ */
 .page .rows{width:100%}
@@ -154,10 +161,11 @@ html{word-break:keep-all;overflow-wrap:break-word}
   flex:0 0 auto;min-width:6.2em;font-weight:800;letter-spacing:-.025em;
   font-size:var(--fs-sm);
 }
-.page .row dt.m{font-family:var(--mono);font-size:.84em;color:var(--crimson);letter-spacing:0}
+.page .row dt.m{font-family:var(--alt);font-size:.92em;font-weight:800;color:var(--crimson);letter-spacing:-.01em}
 .page .row dd{flex:1 1 auto;color:var(--ink2);font-size:var(--fs-sm);line-height:1.5}
 .page .row dd .time{
-  float:right;font-family:var(--mono);font-size:.92em;
+  float:right;font-family:var(--alt);font-size:.92em;
+  font-variant-numeric:tabular-nums;
   color:var(--crimson);font-weight:700;letter-spacing:0;padding-left:10px;
 }
 
@@ -183,7 +191,8 @@ html{word-break:keep-all;overflow-wrap:break-word}
 .page .term{
   background:var(--panel);color:var(--panel-ink);
   border-radius:8px;padding:.9em 1.05em;
-  font-family:var(--mono);font-size:var(--fs-mono);
+  font-family:var(--alt);font-size:var(--fs-mono);font-weight:500;
+  font-variant-numeric:tabular-nums;
   line-height:1.72;white-space:pre-wrap;word-break:break-word;
   letter-spacing:0;overflow-x:auto;
 }

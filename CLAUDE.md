@@ -18,7 +18,10 @@ Vercel 정적 배포. 빌드 도구 없음. 외부 의존은 폰트 CDN과 Supab
 
 ## 디자인 규칙 (전 페이지 공통)
 - 색은 흰 배경(#FFFFFF)과 크림슨(#801A2C) 두 가지만. 다른 색 추가 금지
-- 폰트: Wanted Sans(본문/제목), JetBrains Mono(코드). 변경 금지
+- 폰트는 Pretendard 하나뿐. 다른 폰트 추가 금지
+  (Wanted Sans 는 CDN 경로가 404 라 로드된 적이 없었고,
+   JetBrains Mono 는 한글 글리프가 없어 한글이 시스템 폰트로 떨어졌다.
+   코드·라벨은 같은 폰트에 자간 0 과 tabular-nums 로만 구분한다)
 - 표(`<table>`) 쓰지 말 것. `.rows`(용어+설명) 또는 `.vs`(2열 비교)를 쓴다
 - 애니메이션 추가 금지
 

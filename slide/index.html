@@ -5,10 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>바이브코딩 특강 · GDGoC Korea Univ.</title>
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/wanted-sans@1.0.3/packages/wanted-sans/fonts/webfonts/variable/complete/WantedSansVariable.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap">
 <link rel="stylesheet" href="../styles.css">
 <style>
 :root{
@@ -53,7 +50,7 @@ body{
 
 /* ============ type ============ */
 .step{
-  font-family:var(--mono);font-size:var(--t-sm);font-weight:700;
+  font-family:var(--alt);font-size:var(--t-sm);font-weight:700;
   color:var(--crimson);letter-spacing:.06em;margin-bottom:1em;
 }
 h1{
@@ -78,7 +75,7 @@ p:last-child{margin-bottom:0}
 b,strong{font-weight:800}
 .hl{color:var(--crimson);font-weight:800}
 code{
-  font-family:var(--mono);font-size:.82em;font-weight:700;
+  font-family:var(--alt);font-size:.82em;font-weight:700;
   color:var(--crimson);background:var(--crimson-soft);
   padding:.1em .38em;border-radius:4px;letter-spacing:0;
 }
@@ -99,7 +96,7 @@ code{
 }
 .row:last-child{border-bottom:0}
 .row dt{flex:0 0 auto;min-width:5.5em;font-weight:800;letter-spacing:-.025em}
-.row dt.m{font-family:var(--mono);font-size:.84em;color:var(--crimson);min-width:7.5em}
+.row dt.m{font-family:var(--alt);font-size:.84em;color:var(--crimson);min-width:7.5em}
 .row dd{color:var(--ink2);font-size:calc(var(--t-body) * .88);line-height:1.45}
 
 /* ============ lists ============ */
@@ -115,7 +112,7 @@ ol.steps{list-style:none;counter-reset:s;max-width:46ch}
 ol.steps li{counter-increment:s;position:relative;padding-left:1.9em;margin-bottom:.6em}
 ol.steps li::before{
   content:counter(s);position:absolute;left:0;top:.14em;
-  font-family:var(--mono);font-size:.72em;font-weight:700;color:var(--crimson);
+  font-family:var(--alt);font-size:.72em;font-weight:700;color:var(--crimson);
 }
 ol.steps li:last-child{margin-bottom:0}
 
@@ -123,7 +120,8 @@ ol.steps li:last-child{margin-bottom:0}
 .term{
   background:var(--panel);color:var(--panel-ink);
   border-radius:8px;padding:.95em 1.15em;
-  font-family:var(--mono);font-size:var(--t-mono);font-weight:400;
+  font-family:var(--alt);font-size:var(--t-mono);font-weight:500;
+  font-variant-numeric:tabular-nums;
   line-height:1.72;white-space:pre-wrap;word-break:break-word;
   margin:.85em 0;max-width:60ch;letter-spacing:0;
 }
@@ -132,6 +130,7 @@ ol.steps li:last-child{margin-bottom:0}
 .term .c{color:#948288}
 .term .r{color:#F09AA8}
 .term.say{border-left:4px solid var(--crimson)}
+.term .loopback{display:block;padding-left:11.2em}
 
 /* ============ note / check ============ */
 .note{
@@ -148,19 +147,19 @@ ol.steps li:last-child{margin-bottom:0}
   padding:.42em 1.15em;margin-top:1.1em;
   font-size:calc(var(--t-body) * .8);font-weight:700;letter-spacing:-.02em;
 }
-.check i{font-family:var(--mono);font-style:normal;opacity:.72;font-size:.9em}
+.check i{font-family:var(--alt);font-style:normal;opacity:.72;font-size:.9em}
 
 /* ============ split / vs ============ */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,80px);align-items:start}
 .vs{display:grid;grid-template-columns:auto 1fr 1fr;gap:0 clamp(18px,2.6vw,44px);max-width:60ch}
 .vs > *{padding:.5em 0;border-bottom:1px solid var(--line)}
 .vs .k{color:var(--ink2);font-size:var(--t-sm)}
-.vs .hd{font-family:var(--mono);font-weight:700;color:var(--crimson);
+.vs .hd{font-family:var(--alt);font-weight:700;color:var(--crimson);
   font-size:calc(var(--t-body)*.84);border-bottom:1.5px solid var(--ink)}
 .vs .b{font-size:calc(var(--t-body)*.88)}
 
 .meta{
-  font-family:var(--mono);font-size:var(--t-sm);color:var(--ink2);
+  font-family:var(--alt);font-size:var(--t-sm);color:var(--ink2);
   line-height:2;margin-top:2em;letter-spacing:0;
 }
 
@@ -182,11 +181,11 @@ ol.steps li:last-child{margin-bottom:0}
 
 #hud{
   position:fixed;right:clamp(18px,2.4vw,42px);bottom:clamp(18px,2.4vw,38px);
-  font-family:var(--mono);font-size:13px;color:var(--ink2);z-index:5;
+  font-family:var(--alt);font-size:13px;color:var(--ink2);z-index:5;
   display:flex;align-items:center;gap:12px;letter-spacing:0;
 }
 #hud b{color:var(--crimson);font-weight:700}
-#hud kbd{border:1px solid var(--line);border-radius:4px;padding:1px 6px;font-size:11px}
+#hud kbd{font-family:var(--sans);border:1px solid var(--line);border-radius:4px;padding:1px 6px;font-size:11px}
 
 #brand{
   position:fixed;left:calc(var(--rail) + clamp(14px,1.8vw,28px));
@@ -204,7 +203,7 @@ ol.steps li:last-child{margin-bottom:0}
 .ovc{border:1px solid var(--line);border-radius:8px;padding:12px 14px;cursor:pointer;min-height:88px}
 .ovc:hover{border-color:var(--crimson)}
 .ovc.now{border-color:var(--crimson);background:var(--crimson-soft)}
-.ovc em{font-family:var(--mono);font-style:normal;font-size:11px;color:var(--crimson);
+.ovc em{font-family:var(--alt);font-style:normal;font-size:11px;color:var(--crimson);
   display:block;margin-bottom:5px}
 .ovc span{font-size:14px;font-weight:700;line-height:1.35;letter-spacing:-.02em;display:block}
 
@@ -298,8 +297,7 @@ gh --version</div>
 
 <section class="slide"><div class="wrap">
   <h2>혼자 돌아갑니다</h2>
-  <div class="term">지시 → 상황 파악 → 행동 → 결과 확인
-                             <span class="r">└ 문제 있으면 다시</span></div>
+  <div class="term">지시 → 상황 파악 → 행동 → 결과 확인<span class="r loopback">└ 문제 있으면 다시</span></div>
   <p>"만들어줘" 한 마디에 파일을 만들고, 실행해보고, 안 되면 스스로 고칩니다.</p>
 </div></section>
 
