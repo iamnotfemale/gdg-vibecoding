@@ -110,6 +110,48 @@ html.acc-js details.acc.is-open .fold > .inner{padding-top:2px;padding-bottom:26
 .cmdrow .d{flex:1 1 auto;font-size:var(--fs-sm);color:var(--ink2);line-height:1.45}
 .cmdrow .copy{margin-left:auto}
 
+/* ---------- 실행 예시 사진 ---------- */
+details.shots{
+  margin-top:16px;border:1px solid var(--line);border-radius:10px;overflow:hidden;
+}
+details.shots > summary{
+  list-style:none;cursor:pointer;
+  display:flex;align-items:center;gap:8px;
+  padding:11px 14px;min-height:46px;
+  font-size:13px;font-weight:800;letter-spacing:-.02em;color:var(--ink2);
+}
+details.shots > summary::-webkit-details-marker{display:none}
+details.shots > summary:hover{color:var(--crimson)}
+details.shots > summary b{color:var(--crimson)}
+details.shots > summary .ic{
+  display:inline-block;font-size:11px;color:var(--crimson);
+  transition:transform .18s ease;
+}
+details.shots[open] > summary{border-bottom:1px solid var(--line);color:var(--crimson)}
+details.shots[open] > summary .ic{transform:rotate(90deg)}
+details.shots .shot{padding:14px}
+details.shots figure{margin:0 0 18px}
+details.shots figure:last-child{margin-bottom:0}
+details.shots img{
+  display:block;width:100%;height:auto;
+  border:1px solid var(--line);border-radius:6px;background:var(--paper);
+}
+details.shots a.zoom{display:block;position:relative}
+details.shots a.zoom::after{
+  content:"원본";
+  position:absolute;right:8px;bottom:8px;
+  font-size:10px;font-weight:800;letter-spacing:0;
+  color:#fff;background:var(--crimson);
+  padding:3px 7px;border-radius:4px;opacity:.85;
+}
+details.shots a.zoom:hover::after{opacity:1}
+details.shots figcaption{
+  font-size:12px;line-height:1.55;color:var(--ink2);margin-top:8px;
+}
+@media(prefers-reduced-motion:reduce){
+  details.shots > summary .ic{transition:none}
+}
+
 .legend{display:flex;flex-wrap:wrap;gap:8px;margin:1.4em 0 0}
 .legend .kind{cursor:default}
 .legend-note{font-size:13px;color:var(--ink2);margin-top:10px;line-height:1.55}
@@ -198,6 +240,18 @@ claude</pre>
           <p class="cap">OneDrive 오류를 피하려면 C 드라이브 하위에 만드세요.</p>
         </div>
         <div class="note">Claude는 <b>지금 있는 폴더</b>를 기준으로 일합니다. 바탕화면에서 그냥 실행하지 마세요.</div>
+        <details class="shots">
+          <summary><span class="ic">▸</span>실행 예시 사진 <b>2장</b></summary>
+          <div class="shot">
+          <figure>
+            <a class="zoom" href="../img/step2-folder-1.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step2-folder-1.png" width="437" height="52" loading="lazy" decoding="async" alt="경로명 등은 사용자에 따라 다를 수 있습니다."></a>
+            <figcaption>경로명 등은 사용자에 따라 다를 수 있습니다.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../img/step2-folder-2.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step2-folder-2.png" width="941" height="386" loading="lazy" decoding="async" alt="실행 예시 화면"></a>
+          </figure>
+          </div>
+        </details>
       </div></div>
     </details>
   </div>
@@ -222,6 +276,14 @@ claude</pre>
 - 위 내용을 CLAUDE.md에 정리해줘</pre>
           <p class="cap">확인 — <code>CLAUDE.md</code> 파일이 생겼는지.</p>
         </div>
+        <details class="shots">
+          <summary><span class="ic">▸</span>실행 예시 사진 <b>1장</b></summary>
+          <div class="shot">
+          <figure>
+            <a class="zoom" href="../img/step3-1-claudemd-1.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step3-1-claudemd-1.png" width="937" height="317" loading="lazy" decoding="async" alt="실행 예시 화면"></a>
+          </figure>
+          </div>
+        </details>
       </div></div>
     </details>
 
@@ -240,6 +302,23 @@ claude</pre>
 파일은 아직 만들지 말고 계획만 보여줘.</pre>
           <p class="cap"><span class="paste">[여기에 노션 내용 붙여넣기]</span> 자리에 미리 만들어 둔 노션 자기소개 내용을 넣으세요.</p>
         </div>
+        <details class="shots">
+          <summary><span class="ic">▸</span>실행 예시 사진 <b>3장</b></summary>
+          <div class="shot">
+          <figure>
+            <a class="zoom" href="../img/step3-2-plan-1.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step3-2-plan-1.png" width="837" height="451" loading="lazy" decoding="async" alt="/plan 입력 후 노션 내용 복붙"></a>
+            <figcaption>/plan 입력 후 노션 내용 복붙</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../img/step3-2-plan-2.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step3-2-plan-2.png" width="822" height="101" loading="lazy" decoding="async" alt="plan 도중 claude가 user에게 계획을 위한 몇 가지 질문을 하기도 합니다."></a>
+            <figcaption>plan 도중 claude가 user에게 계획을 위한 몇 가지 질문을 하기도 합니다.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../img/step3-2-plan-3.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step3-2-plan-3.png" width="831" height="545" loading="lazy" decoding="async" alt="plan 초안이 나오면, 바로 proceed 하지 않고 읽어본 후 수정사항이 있는지 점검합니다."></a>
+            <figcaption>plan 초안이 나오면, 바로 proceed 하지 않고 읽어본 후 수정사항이 있는지 점검합니다.</figcaption>
+          </figure>
+          </div>
+        </details>
       </div></div>
     </details>
 
@@ -265,6 +344,26 @@ claude</pre>
           <pre class="body">이 에러 고쳐줘</pre>
           <p class="cap">에러 메시지를 읽을 필요 없습니다. 화면을 캡처해서 <code>Ctrl + V</code> 로 붙여넣고 이 한 줄만 보내세요.</p>
         </div>
+        <details class="shots">
+          <summary><span class="ic">▸</span>실행 예시 사진 <b>4장</b></summary>
+          <div class="shot">
+          <figure>
+            <a class="zoom" href="../img/step3-4-local-1.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step3-4-local-1.png" width="822" height="292" loading="lazy" decoding="async" alt="8분정도 소요 이후 실행이 완료된 사진.  npm run dev가 아닌 자연어로 request해도 됩니다."></a>
+            <figcaption>8분정도 소요 이후 실행이 완료된 사진.  npm run dev가 아닌 자연어로 request해도 됩니다.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../img/step3-4-local-2.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step3-4-local-2.png" width="1217" height="532" loading="lazy" decoding="async" alt="실행 예시 화면"></a>
+          </figure>
+          <figure>
+            <a class="zoom" href="../img/step3-4-error-1.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step3-4-error-1.png" width="797" height="242" loading="lazy" decoding="async" alt="(중대한 에러는 아니지만) 에러 메시지를 통째로 복사/붙여넣기 한 사진."></a>
+            <figcaption>(중대한 에러는 아니지만) 에러 메시지를 통째로 복사/붙여넣기 한 사진.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../img/step3-4-error-2.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step3-4-error-2.png" width="796" height="410" loading="lazy" decoding="async" alt="claude가 해결 방법을 잘 알려줍니다."></a>
+            <figcaption>claude가 해결 방법을 잘 알려줍니다.</figcaption>
+          </figure>
+          </div>
+        </details>
       </div></div>
     </details>
 
@@ -292,6 +391,27 @@ claude</pre>
           </ol>
           <p class="cap">휴대폰으로 그 주소를 열어보세요. 되면 끝난 겁니다.</p>
         </div>
+        <details class="shots">
+          <summary><span class="ic">▸</span>실행 예시 사진 <b>4장</b></summary>
+          <div class="shot">
+          <figure>
+            <a class="zoom" href="../img/step3-5-github-1.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step3-5-github-1.png" width="853" height="126" loading="lazy" decoding="async" alt="initial commit/push 외에도 수정 요청, 수정 후 반영된 내용을 git에 반영하도록 요청할 수 있습니다."></a>
+            <figcaption>initial commit/push 외에도 수정 요청, 수정 후 반영된 내용을 git에 반영하도록 요청할 수 있습니다.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../img/step3-5-github-2.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step3-5-github-2.png" width="1315" height="453" loading="lazy" decoding="async" alt="짠 ~"></a>
+            <figcaption>짠 ~</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../img/step3-5-vercel-1.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step3-5-vercel-1.png" width="690" height="702" loading="lazy" decoding="async" alt="default에서 변경하실 내용은 없고, deploy 클릭 후 기다리시면 됩니다."></a>
+            <figcaption>default에서 변경하실 내용은 없고, deploy 클릭 후 기다리시면 됩니다.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../img/step3-5-vercel-2.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step3-5-vercel-2.png" width="712" height="593" loading="lazy" decoding="async" alt="domains"></a>
+            <figcaption>domains</figcaption>
+          </figure>
+          </div>
+        </details>
       </div></div>
     </details>
 
@@ -354,6 +474,30 @@ claude</pre>
           <pre class="body">내 Notion 페이지 다시 읽어서 사이트 내용 업데이트하고, 커밋·푸시해줘</pre>
           <p class="cap">연결할 수 있는 서비스는 수백 가지입니다. <a href="https://claude.ai/directory" target="_blank" rel="noopener">claude.ai/directory</a> 에서 찾아보세요.</p>
         </div>
+        <details class="shots">
+          <summary><span class="ic">▸</span>실행 예시 사진 <b>5장</b></summary>
+          <div class="shot">
+          <figure>
+            <a class="zoom" href="../img/step4-1-mcp-1.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step4-1-mcp-1.png" width="816" height="213" loading="lazy" decoding="async" alt="실행 예시 화면"></a>
+          </figure>
+          <figure>
+            <a class="zoom" href="../img/step4-1-mcp-2.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step4-1-mcp-2.png" width="793" height="543" loading="lazy" decoding="async" alt="/mcp 명령어 입력."></a>
+            <figcaption>/mcp 명령어 입력.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../img/step4-1-mcp-3.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step4-1-mcp-3.png" width="820" height="255" loading="lazy" decoding="async" alt="목록이 뜹니다. 처음 접속 시에는 connected가 아닐 수 있습니다. notion을 선택하시면 연결 창으로 이동됩니다. 이후 연결을 진행하시"></a>
+            <figcaption>목록이 뜹니다. 처음 접속 시에는 connected가 아닐 수 있습니다. notion을 선택하시면 연결 창으로 이동됩니다. 이후 연결을 진행하시면 됩니다.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../img/step4-1-mcp-4.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step4-1-mcp-4.png" width="652" height="675" loading="lazy" decoding="async" alt="연결할 워크스페이스 선택 이후 연결 진행하시면 됩니다."></a>
+            <figcaption>연결할 워크스페이스 선택 이후 연결 진행하시면 됩니다.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../img/step4-1-mcp-5.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step4-1-mcp-5.png" width="907" height="436" loading="lazy" decoding="async" alt="창을 이동해 외부 서비스(notion) 에 직접 접근하지 않아도, claude가 mcp를 통해 접근, 작업할 수 있습니다."></a>
+            <figcaption>창을 이동해 외부 서비스(notion) 에 직접 접근하지 않아도, claude가 mcp를 통해 접근, 작업할 수 있습니다.</figcaption>
+          </figure>
+          </div>
+        </details>
       </div></div>
     </details>
 
@@ -376,6 +520,40 @@ claude</pre>
           <div class="bh"><span class="kind">명령</span><span class="hint">Claude Code 다시 켜고</span><button class="copy" type="button">복사</button></div>
           <pre class="body">/project-review</pre>
         </div>
+        <details class="shots">
+          <summary><span class="ic">▸</span>실행 예시 사진 <b>8장</b></summary>
+          <div class="shot">
+          <figure>
+            <a class="zoom" href="../img/step4-2-skills-1.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step4-2-skills-1.png" width="898" height="235" loading="lazy" decoding="async" alt="스킬을 만들어달라고 자연어로 명령합니다."></a>
+            <figcaption>스킬을 만들어달라고 자연어로 명령합니다.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../img/step4-2-skills-2.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step4-2-skills-2.png" width="893" height="281" loading="lazy" decoding="async" alt="결과"></a>
+            <figcaption>결과</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../img/step4-2-skills-3.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step4-2-skills-3.png" width="892" height="172" loading="lazy" decoding="async" alt="Ctrl+C 두번으로 클로드 종료 이후 재시작 하면.. 짠 ~ skill이 나타났습니다."></a>
+            <figcaption>Ctrl+C 두번으로 클로드 종료 이후 재시작 하면.. 짠 ~ skill이 나타났습니다.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../img/step4-2-skills-4.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step4-2-skills-4.png" width="873" height="470" loading="lazy" decoding="async" alt="실행 예시 화면"></a>
+          </figure>
+          <figure>
+            <a class="zoom" href="../img/step4-2-skills-5.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step4-2-skills-5.png" width="952" height="227" loading="lazy" decoding="async" alt="skill을 통해 실행하고자 했던 기능을 잘 수행하는 것을 확인할 수 있습니다."></a>
+            <figcaption>skill을 통해 실행하고자 했던 기능을 잘 수행하는 것을 확인할 수 있습니다.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../img/step4-2-plugin-1.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step4-2-plugin-1.png" width="918" height="141" loading="lazy" decoding="async" alt="/plugin 을 통해 discover에서 skill들을 살펴본 뒤 바로 다운받을 수도 있습니다."></a>
+            <figcaption>/plugin 을 통해 discover에서 skill들을 살펴본 뒤 바로 다운받을 수도 있습니다.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../img/step4-2-plugin-2.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step4-2-plugin-2.png" width="897" height="122" loading="lazy" decoding="async" alt="실행 예시 화면"></a>
+          </figure>
+          <figure>
+            <a class="zoom" href="../img/step4-2-plugin-3.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step4-2-plugin-3.png" width="1076" height="425" loading="lazy" decoding="async" alt="실행 예시 화면"></a>
+          </figure>
+          </div>
+        </details>
       </div></div>
     </details>
   </div>
