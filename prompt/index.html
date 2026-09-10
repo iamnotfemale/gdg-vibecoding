@@ -175,6 +175,7 @@ details.shots figcaption{
       <li><a class="n" href="../slide/">슬라이드</a></li>
       <li><a class="n" href="./" aria-current="page">프롬프트</a></li>
       <li><a class="n" href="../share/">공유</a></li>
+      <li><a class="n" href="../idea/">아이디어</a></li>
     </ul>
   </div>
 </nav>
@@ -426,11 +427,57 @@ claude</pre>
           <p class="cap">정답이 없습니다. 마음에 안 들면 그냥 다음 걸 시키면 됩니다.</p>
         </div>
         <div class="blk ai">
-          <div class="bh"><span class="kind">프롬프트</span><span class="hint">캡처를 붙여넣고 함께 전송</span><button class="copy" type="button">복사</button></div>
-          <pre class="body">[claude.ai/design 에서 만든 화면 캡처를 Ctrl+V]
+          <div class="bh"><span class="kind">프롬프트</span><span class="hint">1 · 지금 만든 걸 한 장으로 요약</span><button class="copy" type="button">복사</button></div>
+          <pre class="body">지금까지 만든 걸 DESIGN.md 한 장으로 정리해줘.
 
-이 시안대로 내 페이지 스타일 바꿔줘.
-내용은 그대로 두고 색이랑 레이아웃만.</pre>
+- 이 서비스가 뭘 하는 건지 두세 줄
+- 화면에 있는 것들 (제목, 버튼, 목록 …)
+- 지금 쓰는 색이랑 글꼴
+
+코드는 넣지 마.</pre>
+          <p class="cap">코드를 통째로 넘기면 무겁습니다. 이 한 장만 Claude Design에 첨부하세요.</p>
+        </div>
+        <div class="blk">
+          <div class="bh"><span class="kind" style="background:var(--crimson-soft);color:var(--crimson)">Claude Design</span><span class="hint">2 · 웹에서 진행</span></div>
+          <ol class="steps" style="margin-top:2px">
+            <li><a href="https://claude.ai/design" target="_blank" rel="noopener">claude.ai/design</a> 접속</li>
+            <li>모델 <b>Opus 5</b>, 사고 강도 <b>medium</b> 으로 설정</li>
+            <li>방금 만든 <code>DESIGN.md</code> 첨부</li>
+          </ol>
+          <p class="cap">medium이면 충분합니다. 더 올리면 Pro 요금제에서 사용량이 금방 동납니다.</p>
+        </div>
+        <div class="blk ai">
+          <div class="bh"><span class="kind">프롬프트</span><span class="hint">3 · Claude Design에 넣을 말</span><button class="copy" type="button">복사</button></div>
+          <pre class="body">첨부한 md 파일의 디자인을 바꾸고 싶어요.
+원하는 디자인: [여기에 원하는 분위기를 적어주세요]</pre>
+          <p class="cap"><span class="paste">[여기에 원하는 분위기를 적어주세요]</span> 자리에 &ldquo;90년대 터미널&rdquo;, &ldquo;잡지 표지&rdquo; 처럼 적으면 됩니다.</p>
+        </div>
+        <div class="blk">
+          <div class="bh"><span class="kind" style="background:var(--crimson-soft);color:var(--crimson)">가져오기</span><span class="hint">4 · 클로드코드로</span></div>
+          <ol class="steps" style="margin-top:2px">
+            <li>마음에 드는 시안이 나오면 오른쪽 위 <b>Share</b></li>
+            <li><b>Claude Code</b> 클릭</li>
+            <li><b>Local Agent</b> → <b>Copy Prompt</b> 클릭</li>
+            <li>복사된 프롬프트를 <b>클로드코드에 그대로 붙여넣기</b></li>
+          </ol>
+          <p class="cap">화면 구조가 글로 같이 넘어오기 때문에, 캡처를 붙여넣는 것보다 정확합니다.</p>
+          <details class="shots">
+            <summary><span class="ic">▸</span>실행 예시 사진 <b>3장</b></summary>
+            <div class="shot">
+              <figure>
+                <a class="zoom" href="../img/design-handoff-1-share.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/design-handoff-1-share.png" width="1115" height="592" loading="lazy" decoding="async" alt="Claude Design 오른쪽 위의 Share 버튼"></a>
+                <figcaption>1. 오른쪽 위 <b>Share</b> 를 누릅니다.</figcaption>
+              </figure>
+              <figure>
+                <a class="zoom" href="../img/design-handoff-2-claudecode.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/design-handoff-2-claudecode.png" width="555" height="623" loading="lazy" decoding="async" alt="Share 메뉴의 Export 목록에 있는 Claude Code 항목"></a>
+                <figcaption>2. Export 목록에서 <b>Claude Code</b> 오른쪽의 <b>Send</b> 를 누릅니다.</figcaption>
+              </figure>
+              <figure>
+                <a class="zoom" href="../img/design-handoff-3-copyprompt.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/design-handoff-3-copyprompt.png" width="746" height="393" loading="lazy" decoding="async" alt="Hand off to Claude Code 창의 Local agent 탭과 Copy prompt 버튼"></a>
+                <figcaption>3. <b>Local agent</b> 탭인지 확인하고 <b>Copy prompt</b> 를 누릅니다. 그다음 클로드코드에 그대로 붙여넣으면 됩니다.</figcaption>
+              </figure>
+            </div>
+          </details>
         </div>
         <div class="blk ai">
           <div class="bh"><span class="kind">프롬프트</span><button class="copy" type="button">복사</button></div>
@@ -451,7 +498,7 @@ claude</pre>
 <section class="sec reveal">
   <div class="container">
     <div class="kicker">Part 4 · 20min</div>
-    <h2>MCP와 Skills</h2>
+    <h2>MCP · Skills · 플러그인</h2>
 
     <details class="acc">
       <summary><span class="no">4-1</span><span class="tt">MCP 연결</span><span class="pm"></span></summary>
@@ -521,7 +568,7 @@ claude</pre>
           <pre class="body">/project-review</pre>
         </div>
         <details class="shots">
-          <summary><span class="ic">▸</span>실행 예시 사진 <b>8장</b></summary>
+          <summary><span class="ic">▸</span>실행 예시 사진 <b>5장</b></summary>
           <div class="shot">
           <figure>
             <a class="zoom" href="../img/step4-2-skills-1.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step4-2-skills-1.png" width="898" height="235" loading="lazy" decoding="async" alt="스킬을 만들어달라고 자연어로 명령합니다."></a>
@@ -542,6 +589,42 @@ claude</pre>
             <a class="zoom" href="../img/step4-2-skills-5.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step4-2-skills-5.png" width="952" height="227" loading="lazy" decoding="async" alt="skill을 통해 실행하고자 했던 기능을 잘 수행하는 것을 확인할 수 있습니다."></a>
             <figcaption>skill을 통해 실행하고자 했던 기능을 잘 수행하는 것을 확인할 수 있습니다.</figcaption>
           </figure>
+          </div>
+        </details>
+      </div></div>
+    </details>
+
+    <details class="acc">
+      <summary><span class="no">4-3</span><span class="tt">플러그인 &mdash; 남이 만든 걸 가져다 쓰기</span><span class="pm"></span></summary>
+      <div class="fold"><div class="inner">
+        <p class="cap" style="margin:0 0 14px">플러그인은 스킬·에이전트·자동화 장치·외부 서비스 연결을 묶어놓은 꾸러미입니다. 스마트폰에 앱 설치하는 것과 같습니다.</p>
+        <div class="blk cmd">
+          <div class="bh"><span class="kind">명령</span><span class="hint">뭐가 있는지 둘러보기</span><button class="copy" type="button">복사</button></div>
+          <pre class="body">/plugin</pre>
+          <p class="cap">Anthropic 공식 목록은 설정 없이 바로 보입니다. <b>Discover</b> 탭에서 구경하세요.</p>
+        </div>
+        <div class="blk cmd">
+          <div class="bh"><span class="kind">명령</span><span class="hint">1단계 · 목록 등록 (한 번만)</span><button class="copy" type="button">복사</button></div>
+          <pre class="body">/plugin marketplace add DietrichGebert/ponytail</pre>
+        </div>
+        <div class="blk cmd">
+          <div class="bh"><span class="kind">명령</span><span class="hint">2단계 · 설치</span><button class="copy" type="button">복사</button></div>
+          <pre class="body">/plugin install ponytail@ponytail</pre>
+        </div>
+        <div class="note"><b>3단계 &mdash; Claude Code를 껐다 켜세요.</b> 이걸 안 하면 설치해도 안 보입니다. 가장 많이 놓치는 부분입니다.</div>
+        <div class="blk cmd">
+          <div class="bh"><span class="kind">명령</span><span class="hint">설치된 목록 확인</span><button class="copy" type="button">복사</button></div>
+          <pre class="body">/plugin list</pre>
+        </div>
+        <div class="note">플러그인은 <b>내 컴퓨터 파일에 접근할 수 있습니다.</b> 공식 목록에 있는 건 검증을 거치지만 아무 데서나 가져온 건 그렇지 않습니다. 만든 사람이 누구인지, 최근에도 관리되고 있는지 보세요.</div>
+        <dl class="rows" style="margin-top:16px">
+          <div class="row"><dt class="m">Hooks</dt><dd>특정 상황에서 자동 실행되는 장치. 위험한 명령을 AI 판단이 아니라 코드로 확실하게 막습니다</dd></div>
+          <div class="row"><dt class="m">Sub-agents</dt><dd>Claude가 다른 Claude에게 일을 나눠주는 기능. 각자 기억이 따로라 메인 대화가 안 지저분해집니다</dd></div>
+        </dl>
+        <p class="cap">둘 다 오늘 안 만들어도 됩니다. 특히 Sub-agents는 에이전트 수만큼 사용량을 씁니다.</p>
+        <details class="shots">
+          <summary><span class="ic">▸</span>실행 예시 사진 <b>3장</b></summary>
+          <div class="shot">
           <figure>
             <a class="zoom" href="../img/step4-2-plugin-1.png" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="../img/step4-2-plugin-1.png" width="918" height="141" loading="lazy" decoding="async" alt="/plugin 을 통해 discover에서 skill들을 살펴본 뒤 바로 다운받을 수도 있습니다."></a>
             <figcaption>/plugin 을 통해 discover에서 skill들을 살펴본 뒤 바로 다운받을 수도 있습니다.</figcaption>
@@ -603,16 +686,17 @@ claude</pre>
   <div class="container">
     <div class="kicker">Free build · 25min</div>
     <h2>자율 실습</h2>
+    <p class="legend-note" style="margin:0 0 4px">지금까지는 다 같이 같은 걸 만들었습니다. 지금부턴 각자 만들고 싶은 걸 만들어보는 시간입니다.</p>
 
     <details class="acc">
-      <summary><span class="no">6</span><span class="tt">각자 자기 문제로</span><span class="pm"></span></summary>
+      <summary><span class="no">6</span><span class="tt">각자 만들고 싶은 걸</span><span class="pm"></span></summary>
       <div class="fold"><div class="inner">
         <div class="blk">
           <div class="bh"><span class="kind" style="background:var(--crimson-soft);color:var(--crimson)">① 먼저 적어보세요</span><span class="hint">5분</span></div>
           <pre class="body" style="background:var(--paper);border:1px solid var(--line);color:var(--ink)">1  누구의 무슨 문제인가
 2  화면에 뭐가 보이면 되는가
 3  완성 조건 한 줄
-   "이 화면에서 ○○를 3초 안에 할 수 있으면 성공"</pre>
+   "이 화면에서 ○○를 보여줄 수 있으면 성공"</pre>
         </div>
         <div class="blk">
           <div class="bh"><span class="kind" style="background:var(--crimson-soft);color:var(--crimson)">② 만들기</span></div>
@@ -620,12 +704,12 @@ claude</pre>
         </div>
         <div class="blk ai">
           <div class="bh"><span class="kind">프롬프트</span><span class="hint">③ 지우기</span><button class="copy" type="button">복사</button></div>
-          <pre class="body">여기서 [○○○]과 [○○○] 빼줘. 내가 요청한 거 아니야.</pre>
-          <p class="cap">AI는 가끔 필요 이상으로 줍니다. 안 시킨 기능이 몇 개 붙어 있을 겁니다.</p>
+          <pre class="body">여기서 [○○○]과 [○○○] 빼줘. 굳이 필요 없을 것 같아</pre>
+          <p class="cap">AI가 넣어준 것 중에 필요 없는 걸 지우세요. 안 시킨 기능이 몇 개 붙어 있을 겁니다.</p>
         </div>
         <div class="blk">
           <div class="bh"><span class="kind" style="background:var(--crimson-soft);color:var(--crimson)">④ 마무리</span></div>
-          <p class="cap" style="margin-top:0">옆 사람에게 30초만 설명해보세요.</p>
+          <p class="cap" style="margin-top:0">옆 사람에게 30초만 설명해보세요. 마지막 절을 말할 수 있다면, 그건 직접 판단해서 만들었다는 뜻입니다.</p>
           <pre class="body" style="background:var(--paper);border:1px solid var(--line);color:var(--ink);margin-top:7px">"누가 뭐 때문에 불편했고,
  그래서 이걸 만들었고,
  이건 일부러 안 넣었습니다."</pre>

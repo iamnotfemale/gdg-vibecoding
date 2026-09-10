@@ -486,11 +486,40 @@ CLAUDE.md만 우선 세팅해줘.
 </div></section>
 
 <section class="slide"><div class="wrap">
-  <h2>넘기고 다시 배포</h2>
-  <div class="term say">[캡처 Ctrl+V]
+  <h2>먼저 지금 만든 걸<br>한 장으로 요약하세요</h2>
+  <div class="term say">지금까지 만든 걸 DESIGN.md 한 장으로 정리해줘.
 
-이 시안대로 내 페이지 스타일 바꿔줘.
-내용은 그대로 두고 색이랑 레이아웃만.</div>
+- 이 서비스가 뭘 하는 건지 두세 줄
+- 화면에 있는 것들 (제목, 버튼, 목록 …)
+- 지금 쓰는 색이랑 글꼴
+
+코드는 넣지 마.</div>
+  <div class="note">이 파일을 Claude Design에 넘깁니다. <b>코드를 통째로 넘기면 무겁습니다.</b></div>
+</div></section>
+
+<section class="slide"><div class="wrap">
+  <h2>Claude Design에 넘기기</h2>
+  <div class="term"><span class="c">claude.ai/design · 모델 Opus 5, 사고 강도 medium</span>
+DESIGN.md 첨부</div>
+  <div class="term say">첨부한 md 파일의 디자인을 바꾸고 싶어요.
+원하는 디자인: <span class="r">[여기에 원하는 분위기]</span></div>
+  <div class="note"><b>medium이면 충분합니다.</b> 더 올리면 Pro 요금제에서 금방 동납니다.</div>
+</div></section>
+
+<section class="slide"><div class="wrap">
+  <h2>만든 디자인을<br>클로드코드로 가져오기</h2>
+  <ol class="steps">
+    <li>오른쪽 위 <b>Share</b></li>
+    <li><b>Claude Code</b> 클릭</li>
+    <li><b>Local Agent</b> → <b>Copy Prompt</b></li>
+    <li>복사한 걸 <b>클로드코드에 그대로 붙여넣기</b></li>
+  </ol>
+  <div class="note">캡처를 넘기는 것보다 정확합니다. 화면 구조가 글로 같이 넘어옵니다.</div>
+</div></section>
+
+<section class="slide"><div class="wrap">
+  <h2>붙여넣고 다시 배포</h2>
+  <div class="term say">[Copy Prompt 로 복사한 것을 그대로 붙여넣기]</div>
   <div class="term say">커밋하고 푸시해줘</div>
   <div class="note">푸시 한 줄에 실제 주소가 바뀝니다. Vercel은 푸시하면 자동으로 다시 배포됩니다.</div>
 </div></section>
@@ -648,32 +677,41 @@ claude mcp add --transport http notion https://mcp.notion.com/mcp
 
 <!-- ================= 자율 실습 ================= -->
 <section class="slide"><div class="wrap">
+  <div class="step">① 먼저 적어보세요</div>
   <h2>이제 각자 만들고 싶은 걸</h2>
-  <p>지난 일주일 동안 짜증났던 일 하나를 꺼내세요.</p>
-  <div class="term"><span class="c">AI 끄고 종이에 세 줄</span>
-1  누구의 무슨 문제인가
-2  화면에 뭐가 보이면 되나
+  <p>지금까지는 다 같이 같은 걸 만들었습니다. 지금부턴 <b>각자 만들고 싶은 걸</b> 만들어보는 시간입니다.</p>
+  <div class="term">1  누구의 무슨 문제인가
+2  화면에 뭐가 보이면 되는가
 3  완성 조건 한 줄
-   <span class="r">"이 화면에서 ○○를 3초 안에 할 수 있으면 성공"</span></div>
-  <div class="note"><b>3번이 핵심입니다.</b> 판단 기준을 먼저 정해두면, AI가 뭘 내놓든 내 기준에 맞는지 직접 판단할 수 있습니다.</div>
+   <span class="r">"이 화면에서 ○○를 보여줄 수 있으면 성공"</span></div>
 </div></section>
 
 <section class="slide"><div class="wrap">
-  <h2>AI가 준 것 중에<br>없어도 되는 것을 지우세요</h2>
-  <p>AI는 가끔 필요 이상으로 줍니다. 지금 화면에 <b>안 시킨 기능이 대여섯 개</b> 붙어 있을 겁니다.</p>
-  <div class="term say">여기서 [○○○]과 [○○○] 빼줘. 내가 요청한 거 아니야.</div>
+  <div class="step">② 만들기</div>
+  <h2>오늘 배운 순서 그대로</h2>
+  <div class="term">/plan 으로 계획 받기 → 읽고 고치기 → 진행 → 확인</div>
+  <div class="note"><b>다 못 끝내셔도 정상입니다.</b> 절반 이상은 시간 안에 안 끝납니다. 끝까지 가는 게 목표가 아닙니다.</div>
 </div></section>
 
 <section class="slide"><div class="wrap">
-  <h2>마지막 3분,<br>말로 설명해보세요</h2>
+  <div class="step">③ 지우기</div>
+  <h2>AI가 넣어준 것 중에<br>필요 없는 걸 지우세요</h2>
+  <p>AI는 가끔 필요 이상으로 줍니다. 지금 화면에 <b>안 시킨 기능이 몇 개</b> 붙어 있을 겁니다.</p>
+  <div class="term say">여기서 [○○○]과 [○○○] 빼줘. 굳이 필요 없을 것 같아</div>
+</div></section>
+
+<section class="slide"><div class="wrap">
+  <div class="step">④ 마무리</div>
+  <h2>옆 사람에게<br>30초만 설명해보세요</h2>
   <div class="term">"누가 뭐 때문에 불편했고,
  그래서 이걸 만들었고,
  이건 일부러 안 넣었습니다."</div>
+  <div class="note">마지막 절을 말할 수 있다면, 그건 <b>직접 판단해서 만들었다는 뜻</b>입니다.</div>
 </div></section>
 
 <section class="slide"><div class="wrap">
   <h1>끝<span class="cursor"></span></h1>
-  <p class="lede">질문은 지금, 그리고 단톡방에서.</p>
+  <p class="lede">Q&amp;A</p>
 </div></section>
 
 </main>
