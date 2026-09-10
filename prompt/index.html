@@ -281,6 +281,13 @@ claude</pre>
       <summary><span class="no">3-6</span><span class="tt">디자인 입히고 재배포</span><span class="pm"></span></summary>
       <div class="inner">
         <div class="blk ai">
+          <div class="bh"><span class="kind">프롬프트</span><span class="hint">말로 먼저 바꿔보기 · 하나 골라서</span><button class="copy" type="button">복사</button></div>
+          <pre class="body">90년대 터미널 느낌으로 바꿔줘
+잡지 표지처럼 바꿔줘
+어릴 때 문방구 스티커 느낌으로 바꿔줘</pre>
+          <p class="cap">정답이 없습니다. 마음에 안 들면 그냥 다음 걸 시키면 됩니다.</p>
+        </div>
+        <div class="blk ai">
           <div class="bh"><span class="kind">프롬프트</span><span class="hint">캡처를 붙여넣고 함께 전송</span><button class="copy" type="button">복사</button></div>
           <pre class="body">[claude.ai/design 에서 만든 화면 캡처를 Ctrl+V]
 
@@ -290,6 +297,13 @@ claude</pre>
         <div class="blk ai">
           <div class="bh"><span class="kind">프롬프트</span><button class="copy" type="button">복사</button></div>
           <pre class="body">커밋하고 푸시해줘</pre>
+          <p class="cap">푸시 한 줄에 실제 주소가 바뀝니다. Vercel은 새 코드가 올라오면 자동으로 다시 배포합니다.</p>
+        </div>
+        <div class="blk ai">
+          <div class="bh"><span class="kind">프롬프트</span><span class="hint">레퍼런스 사이트를 넘길 때 꼭 같이</span><button class="copy" type="button">복사</button></div>
+          <pre class="body">색이랑 글씨체 분위기만 참고하고, 내용은 내 걸로 유지해줘.
+로고나 사진은 따라 만들지 마.</pre>
+          <p class="cap">이 한 줄이 없으면 그 사이트의 로고까지 재현하려고 들어서 이상해집니다.</p>
         </div>
       </div>
     </details>
@@ -398,7 +412,30 @@ claude</pre>
       <summary><span class="no">6</span><span class="tt">각자 자기 문제로</span><span class="pm"></span></summary>
       <div class="inner">
         <div class="blk">
-          <div class="bh"><span class="kind" style="background:var(--crimson-soft);color:var(--crimson)">만들기 전에</span></div>
+          <div class="bh"><span class="kind" style="background:var(--crimson-soft);color:var(--crimson)">① 먼저 적어보세요</span><span class="hint">5분</span></div>
+          <pre class="body" style="background:var(--paper);border:1px solid var(--line);color:var(--ink)">1  누구의 무슨 문제인가
+2  화면에 뭐가 보이면 되는가
+3  완성 조건 한 줄
+   "이 화면에서 ○○를 3초 안에 할 수 있으면 성공"</pre>
+        </div>
+        <div class="blk">
+          <div class="bh"><span class="kind" style="background:var(--crimson-soft);color:var(--crimson)">② 만들기</span></div>
+          <p class="cap" style="margin-top:0">오늘 배운 순서 그대로. <code>/plan</code> 으로 계획 받기 → 읽고 고치기 → 진행 → 확인.<br>다 못 끝내셔도 정상입니다. 절반 이상은 시간 안에 안 끝납니다.</p>
+        </div>
+        <div class="blk ai">
+          <div class="bh"><span class="kind">프롬프트</span><span class="hint">③ 지우기</span><button class="copy" type="button">복사</button></div>
+          <pre class="body">여기서 [○○○]과 [○○○] 빼줘. 내가 요청한 거 아니야.</pre>
+          <p class="cap">AI는 가끔 필요 이상으로 줍니다. 안 시킨 기능이 몇 개 붙어 있을 겁니다.</p>
+        </div>
+        <div class="blk">
+          <div class="bh"><span class="kind" style="background:var(--crimson-soft);color:var(--crimson)">④ 마무리</span></div>
+          <p class="cap" style="margin-top:0">옆 사람에게 30초만 설명해보세요.</p>
+          <pre class="body" style="background:var(--paper);border:1px solid var(--line);color:var(--ink);margin-top:7px">"누가 뭐 때문에 불편했고,
+ 그래서 이걸 만들었고,
+ 이건 일부러 안 넣었습니다."</pre>
+        </div>
+        <div class="blk">
+          <div class="bh"><span class="kind" style="background:var(--crimson-soft);color:var(--crimson)">BYPP 전에</span></div>
           <ul class="pts sm" style="margin-top:2px">
             <li>누구의, 어떤 문제인가?</li>
             <li>이걸 정말 해결해야 할까?</li>
