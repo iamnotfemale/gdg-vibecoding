@@ -121,8 +121,9 @@ html{word-break:keep-all;overflow-wrap:break-word}
 .page .hero{padding:clamp(44px,11vw,86px) 0 clamp(24px,6vw,36px)}
 .page .hero .lede{margin-top:.7em;max-width:30ch}
 .page .hero .when{
-  font-family:var(--mono);font-size:var(--fs-sm);color:var(--ink2);
-  letter-spacing:0;margin-top:1.5em;line-height:1.7;
+  font-family:var(--sans);font-size:var(--fs-sm);font-weight:700;
+  color:var(--ink2);letter-spacing:-.02em;
+  margin-top:1.5em;line-height:1.7;
 }
 
 /* ============ 바로가기 3개 ============ */
