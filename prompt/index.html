@@ -565,36 +565,54 @@ claude</pre>
 
 <script>
 /* 스크롤하면 스르륵 나타나기.
-   .reveal 은 html.js 일 때만 숨겨져 있으므로, 여기서 반드시 풀어줘야 한다.
-   IntersectionObserver 가 없거나 동작 최소화면 즉시 다 보여준다. */
+   IntersectionObserver 대신 스크롤 위치로 직접 판단한다.
+   관찰자가 어떤 이유로든 콜백을 주지 않으면 내용이 계속 안 보이는데,
+   그 위험을 아예 없애는 쪽을 택했다. 계산은 화면에 들어온 것만 하고,
+   다 나타나면 리스너를 뗀다. */
 (function(){
   var els = [].slice.call(document.querySelectorAll('.reveal'));
   if(!els.length) return;
 
-  function showAll(){ els.forEach(function(el){ el.classList.add('is-in'); }); }
+  function showAll(){
+    els.forEach(function(el){ el.classList.add('is-in'); });
+    els = [];
+  }
 
-  if(!('IntersectionObserver' in window) ||
-     window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     showAll(); return;
   }
 
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      if(en.isIntersecting){
-        en.target.classList.add('is-in');
-        io.unobserve(en.target);
+  var ticking = false;
+
+  function check(){
+    ticking = false;
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    for(var i = els.length - 1; i >= 0; i--){
+      if(els[i].getBoundingClientRect().top < vh * 0.92){
+        els[i].classList.add('is-in');
+        els.splice(i, 1);
       }
-    });
-  }, { rootMargin:'0px 0px -8% 0px', threshold:0.06 });
+    }
+    if(!els.length) detach();
+  }
 
-  els.forEach(function(el){ io.observe(el); });
+  function onScroll(){
+    if(ticking) return;
+    ticking = true;
+    (window.requestAnimationFrame || function(f){ setTimeout(f, 16); })(check);
+  }
 
-  /* 관찰이 어떤 이유로든 안 걸렸을 때를 대비한 안전장치 */
-  setTimeout(function(){
-    els.forEach(function(el){
-      if(el.getBoundingClientRect().top < window.innerHeight) el.classList.add('is-in');
-    });
-  }, 1200);
+  function detach(){
+    window.removeEventListener('scroll', onScroll);
+    window.removeEventListener('resize', onScroll);
+  }
+
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  check();
+
+  /* 무슨 일이 있어도 3초 뒤에는 전부 보이게 한다 */
+  setTimeout(showAll, 3000);
 })();
 </script>
 
