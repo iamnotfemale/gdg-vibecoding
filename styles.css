@@ -233,3 +233,26 @@ html{word-break:keep-all;overflow-wrap:break-word}
 }
 
 .page :focus-visible{outline:3px solid var(--crimson);outline-offset:3px}
+
+/* ============ 스크롤 등장 ============
+   JS 가 붙었을 때만(html.js) 숨긴다. JS 가 안 돌면 그냥 보인다.
+   동작 최소화를 켠 사용자에게는 아무 것도 움직이지 않는다. */
+html.js .page .reveal{
+  opacity:0;transform:translateY(18px);
+  will-change:opacity,transform;
+}
+html.js .page .reveal.is-in{
+  opacity:1;transform:none;
+  transition:opacity .5s ease,transform .55s cubic-bezier(.2,.75,.3,1);
+  will-change:auto;
+}
+/* 히어로 안에서는 살짝 시차를 준다 */
+html.js .page .hero .reveal:nth-child(2).is-in{transition-delay:.07s}
+html.js .page .hero .reveal:nth-child(3).is-in{transition-delay:.14s}
+
+@media(prefers-reduced-motion:reduce){
+  html.js .page .reveal,
+  html.js .page .reveal.is-in{
+    opacity:1;transform:none;transition:none;
+  }
+}

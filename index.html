@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css">
 <link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js');</script>
 <style>
 .hero h1 .cursor{
   display:inline-block;width:.46em;height:.78em;
@@ -39,14 +40,14 @@
 
 <header class="hero">
   <div class="container">
-    <h1>바이브 코딩<span class="cursor"></span></h1>
-    <p class="lede">Claude Code로 웹 서비스 만들고 배포하기</p>
-    <div class="when">2026. 9. 10. 18:00 · GDGoC Korea Univ.</div>
+    <h1 class="reveal">바이브 코딩<span class="cursor"></span></h1>
+    <p class="lede reveal">Claude Code로 웹 서비스 만들고 배포하기</p>
+    <div class="when reveal">2026. 9. 10. 18:00 · GDGoC Korea Univ.</div>
   </div>
 </header>
 
 <div class="container">
-  <nav class="jump" aria-label="바로가기">
+  <nav class="jump reveal" aria-label="바로가기">
     <a href="slide/">
       <span class="t">슬라이드 보기</span>
       <span class="p">/slide</span>
@@ -62,7 +63,7 @@
   </nav>
 </div>
 
-<section class="sec">
+<section class="sec reveal">
   <div class="container">
     <div class="kicker">About</div>
     <h2>이 강의는</h2>
@@ -71,7 +72,7 @@
   </div>
 </section>
 
-<section class="sec who">
+<section class="sec who reveal">
   <div class="container">
     <div class="kicker">For</div>
     <h2>이런 분께</h2>
@@ -85,7 +86,7 @@
   </div>
 </section>
 
-<section class="sec">
+<section class="sec reveal">
   <div class="container">
     <div class="kicker">Curriculum · 150min</div>
     <h2>오늘 하는 것</h2>
@@ -103,7 +104,7 @@
   </div>
 </section>
 
-<section class="sec">
+<section class="sec reveal">
   <div class="container">
     <div class="kicker">Bring</div>
     <h2>준비물</h2>
@@ -116,7 +117,7 @@
   </div>
 </section>
 
-<section class="sec">
+<section class="sec reveal">
   <div class="container">
     <div class="kicker">Speaker</div>
     <h2>강사</h2>
@@ -145,6 +146,42 @@
     <div>GDGoC Korea Univ. · 바이브코딩 특강</div>
   </div>
 </footer>
+
+
+<script>
+/* 스크롤하면 스르륵 나타나기.
+   .reveal 은 html.js 일 때만 숨겨져 있으므로, 여기서 반드시 풀어줘야 한다.
+   IntersectionObserver 가 없거나 동작 최소화면 즉시 다 보여준다. */
+(function(){
+  var els = [].slice.call(document.querySelectorAll('.reveal'));
+  if(!els.length) return;
+
+  function showAll(){ els.forEach(function(el){ el.classList.add('is-in'); }); }
+
+  if(!('IntersectionObserver' in window) ||
+     window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    showAll(); return;
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        en.target.classList.add('is-in');
+        io.unobserve(en.target);
+      }
+    });
+  }, { rootMargin:'0px 0px -8% 0px', threshold:0.06 });
+
+  els.forEach(function(el){ io.observe(el); });
+
+  /* 관찰이 어떤 이유로든 안 걸렸을 때를 대비한 안전장치 */
+  setTimeout(function(){
+    els.forEach(function(el){
+      if(el.getBoundingClientRect().top < window.innerHeight) el.classList.add('is-in');
+    });
+  }, 1200);
+})();
+</script>
 
 </body>
 </html>

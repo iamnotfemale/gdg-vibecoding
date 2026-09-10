@@ -23,7 +23,10 @@ Vercel 정적 배포. 빌드 도구 없음. 외부 의존은 폰트 CDN과 Supab
    JetBrains Mono 는 한글 글리프가 없어 한글이 시스템 폰트로 떨어졌다.
    코드·라벨은 같은 폰트에 자간 0 과 tabular-nums 로만 구분한다)
 - 표(`<table>`) 쓰지 말 것. `.rows`(용어+설명) 또는 `.vs`(2열 비교)를 쓴다
-- 애니메이션 추가 금지
+- 슬라이드(/slide)에는 애니메이션 추가 금지. 이미 있는 등장 효과로 충분하다
+- 메인과 /prompt 에는 스크롤 등장(.reveal)과 아코디언 펼침만 허용한다.
+  둘 다 prefers-reduced-motion 을 존중해야 하고,
+  스크립트가 실패해도 내용이 보이는 구조여야 한다
 
 ## 슬라이드(/slide) 전용 규칙
 - 슬라이드 단위는 `<section class="slide"><div class="wrap">…</div></section>`
