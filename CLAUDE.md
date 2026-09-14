@@ -10,6 +10,7 @@ Vercel 정적 배포. 빌드 도구 없음. 외부 의존은 폰트 CDN과 Supab
 /prompt     수업 중 CLI에 입력할 프롬프트 모음
 /share      수강생이 자기 결과물 링크를 올리고 서로 보는 곳
 /idea       뭘 만들지 못 정한 사람이 질문에 답하면 프롬프트가 나오는 브레인스토밍
+/assignment 특강 불참자용 대체 과제 안내 (배포 → /share 등록). 메인에서만 링크
 
 ## 대상
 코딩을 처음 하는 대학교 1~4학년.
@@ -52,6 +53,7 @@ slide/index.html      발제 슬라이드
 prompt/index.html     프롬프트 모음
 share/index.html      결과물 공유
 idea/index.html       브레인스토밍
+assignment/index.html 대체 과제 안내
 img/                  노션 「실행 예시 사진」 토글에서 받아온 스크린샷
 styles.css            4개 페이지가 공유하는 디자인 토큰
 ```

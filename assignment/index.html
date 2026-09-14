@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>대체 과제 · 바이브 코딩</title>
+<meta name="description" content="특강에 참여하지 못하신 분을 위한 대체 과제 안내. 강의 내용대로 만들고 배포해서 공유 페이지에 올려주세요.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css">
+<link rel="stylesheet" href="../styles.css">
+<style>
+.step{margin-top:clamp(28px,6vw,40px)}
+.step:first-of-type{margin-top:0}
+.step h3{font-size:clamp(17px,3.6vw,20px);color:var(--ink);margin-bottom:.6em}
+.step h3 .n{color:var(--crimson);margin-right:.35em;font-variant-numeric:tabular-nums}
+.step .term{margin:.8em 0}
+.step ol.steps{list-style:none;counter-reset:s}
+.step ol.steps li{counter-increment:s;position:relative;padding-left:1.7em;margin-bottom:.55em}
+.step ol.steps li::before{
+  content:counter(s);position:absolute;left:0;top:.05em;
+  font-size:.82em;font-weight:800;color:var(--crimson);font-variant-numeric:tabular-nums;
+}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.key{border:1.5px solid var(--crimson);border-radius:12px;padding:clamp(16px,4vw,22px)}
+.key p:last-child{margin-bottom:0}
+</style>
+</head>
+<body class="page">
+
+<nav class="nav" aria-label="사이트 이동">
+  <div class="container">
+    <a class="brand" href="../">바이브 코딩 <span>·</span> GDGoC KU</a>
+    <ul>
+      <li><a class="n" href="../">메인</a></li>
+      <li><a class="n" href="../slide/">슬라이드</a></li>
+      <li><a class="n" href="../prompt/">프롬프트</a></li>
+      <li><a class="n" href="../share/">공유</a></li>
+      <li><a class="n" href="../idea/">아이디어</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+<header class="hero">
+  <div class="container">
+    <h1>대체 과제</h1>
+    <p class="lede">특강에 참여하지 못하셨다면, 강의 내용을 따라 직접 사이트를 만들고 배포해서 올려주세요.</p>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="container">
+    <div class="kicker">Submit</div>
+    <h2>제출 조건</h2>
+    <ul class="pts">
+      <li>강의에서처럼 <b>내 소개 페이지</b>를 만듭니다. 다른 주제여도 괜찮습니다</li>
+      <li>GitHub에 <b>퍼블릭 레포</b>로 올립니다</li>
+      <li>Vercel로 배포해서 <b>로그인 없이 누구나 열리는 주소</b>를 만듭니다</li>
+      <li>그 주소를 <a href="../share/">결과물 공유 페이지</a>에 올립니다</li>
+    </ul>
+    <div class="note">공유 페이지에 올리면 <b>제출 완료</b>입니다.</div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="container">
+    <div class="kicker">How</div>
+    <h2>수행 방법</h2>
+
+    <div class="step">
+      <h3><span class="n">1</span>준비하기</h3>
+      <p>개인 노트북, Claude Pro 요금제 이상, GitHub 계정이 필요합니다. 터미널에 아래 세 줄을 입력해보세요.</p>
+      <div class="term">claude --version
+git --version
+gh --version</div>
+      <p class="sm dim">세 줄 모두 버전 숫자가 뜨면 준비 완료입니다.</p>
+    </div>
+
+    <div class="step">
+      <h3><span class="n">2</span>강의 따라 만들기</h3>
+      <p>슬라이드를 보면서, 프롬프트 모음의 순서대로 복사해서 붙여넣으시면 됩니다.</p>
+      <dl class="rows">
+        <div class="row"><dt class="m">Part 2</dt><dd>폴더 만들고 claude 실행</dd></div>
+        <div class="row"><dt class="m">3-1</dt><dd>CLAUDE.md 세팅</dd></div>
+        <div class="row"><dt class="m">3-2</dt><dd><code>/plan</code> 으로 계획 받고, 읽고 고치기</dd></div>
+        <div class="row"><dt class="m">3-3 · 3-4</dt><dd>구현하고 <code>localhost:3000</code> 에서 확인</dd></div>
+        <div class="row"><dt class="m">3-5</dt><dd>GitHub 퍼블릭 레포에 올리기</dd></div>
+      </dl>
+      <div class="links">
+        <a class="btn ghost" href="../slide/">슬라이드 보기</a>
+        <a class="btn" href="../prompt/">프롬프트 모음</a>
+      </div>
+      <div class="note">에러가 나면 화면을 캡처해서 <code>Ctrl + V</code> 로 붙여넣고 <b>&ldquo;이 에러 고쳐줘&rdquo;</b> 라고만 보내세요.</div>
+    </div>
+
+    <div class="step">
+      <h3><span class="n">3</span>Vercel로 배포하기</h3>
+      <ol class="steps">
+        <li><a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a> 접속 → GitHub로 로그인</li>
+        <li><b>Add New</b> → <b>Project</b> → 방금 만든 레포 <b>Import</b></li>
+        <li><b>Deploy</b> 누르고 2~3분 기다리기</li>
+        <li>프로젝트 화면의 <b>Domains</b> 에 보이는 주소 복사</li>
+      </ol>
+    </div>
+
+    <div class="step">
+      <h3><span class="n">4</span>누구나 열리는지 확인하기</h3>
+      <div class="key">
+        <p><b>로그인 화면이 뜨는 주소는 확인할 수 없습니다.</b> 제출 전에 꼭 확인해주세요.</p>
+        <dl class="rows">
+          <div class="row"><dt>올릴 주소</dt><dd><code>my-project.vercel.app</code> 처럼 짧은 주소</dd></div>
+          <div class="row"><dt>안 되는 주소</dt><dd><code>my-project-a1b2c3-...-projects.vercel.app</code> 처럼 긴 주소. 본인 말고는 Vercel 로그인 화면이 뜹니다</dd></div>
+        </dl>
+        <ol class="steps" style="margin-top:14px">
+          <li>휴대폰이나 브라우저 <b>시크릿 창</b>에서 주소를 엽니다</li>
+          <li>로그인 없이 내 페이지가 바로 뜨면 통과입니다</li>
+        </ol>
+      </div>
+      <div class="note">짧은 주소에서도 로그인 화면이 뜬다면 Vercel 프로젝트의 <b>Settings → Deployment Protection</b> 에서 <b>Vercel Authentication</b> 을 끄고 다시 확인하세요.</div>
+    </div>
+
+    <div class="step">
+      <h3><span class="n">5</span>공유 페이지에 올리기</h3>
+      <ol class="steps">
+        <li><b>이름</b> 칸에 실명</li>
+        <li><b>링크</b> 칸에 4번에서 확인한 짧은 주소</li>
+        <li><b>한 줄 설명</b> 맨 앞에 <code>[대체과제]</code> 를 붙여주세요</li>
+      </ol>
+      <p class="sm dim">예) <code>[대체과제] 관심사와 링크를 담은 소개 페이지</code></p>
+      <div class="links">
+        <a class="btn" href="../share/">결과물 공유로 가기</a>
+      </div>
+      <div class="note">올린 뒤에는 수정·삭제가 안 됩니다. 잘못 올리셨다면 강사에게 말씀해주세요.</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="container">
+    <div class="fl">
+      <a href="../">메인</a>
+      <a href="../slide/">슬라이드</a>
+      <a href="../prompt/">프롬프트 모음</a>
+      <a href="../share/">결과물 공유</a>
+    </div>
+    <div>GDGoC Korea Univ. · 바이브코딩 특강</div>
+  </div>
+</footer>
+
+</body>
+</html>
