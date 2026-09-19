@@ -10,8 +10,6 @@
 
 [![슬라이드](https://img.shields.io/badge/슬라이드-53장-801A2C)](https://gdg-vibecoding.vercel.app/slide/)
 [![프롬프트](https://img.shields.io/badge/프롬프트-40개-801A2C)](https://gdg-vibecoding.vercel.app/prompt/)
-[![Vercel](https://img.shields.io/badge/Vercel-정적_배포-000000?logo=vercel)](https://vercel.com)
-[![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?logo=supabase&logoColor=white)](https://supabase.com)
 
 </div>
 
